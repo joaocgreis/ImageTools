@@ -73,7 +73,7 @@ void work (pixel** img, int cols, int rows, pixval maxval)
         }
       }
       cmax++; // Ends after
-
+      
       // At this point there is content, and we know min and max.
       if (in) {
         // Keep in
@@ -110,7 +110,8 @@ void work (pixel** img, int cols, int rows, pixval maxval)
 
 int main (int argc, char** argv)
 {
-  minw = minh = 50;
+  minw = 1500;
+  minh = 1000;
   
   pixel** img;
   int cols, rows;
