@@ -1,0 +1,13 @@
+find -name "*.pdf" -print -exec pdftoppm -r 300 -freetype yes -aa yes -aaVector yes "{}" "{}" \;
+extract_rectangles_ppm *ppm
+rm aula*ppm
+replace_color replacesrc0.ppm replacedst.ppm img-0*
+replace_color replacesrc1.ppm replacedst.ppm mod-img-0*
+replace_color replacesrc2.ppm replacedst.ppm mod-mod-img-0*
+rm mod-img-0*
+rm mod-mod-img-0*
+mmv "mod-mod-mod-img-0*.ppm" "trat-#1.ppm"
+find -name "trat*.ppm" -print -exec convert "{}" "{}.png" \;
+rm trat-*ppm
+mmv "trat-*.ppm.png" "trat-#1.png"
+convert t*png Aulas_00-10.pdf
